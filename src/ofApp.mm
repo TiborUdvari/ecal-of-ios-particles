@@ -52,15 +52,12 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    mouseAttractionPoint.set(0,0);
     //mouseAttractionPoint.set(ofGetMouseX(), ofGetMouseY());
     
     //float gravityX = ofxAccelerometer.getForce().x;
     //float gravityY = ofxAccelerometer.getForce().y;
     
     ofVec2f gravity = ofxAccelerometer.getForce() * ofVec2f(1, -1) * 10;  //ofVec2f (0, 9);
-    
-    
     
     noiseCounter += 0.01;
     ofVec2f wind = ofVec2f ((ofNoise(noiseCounter)-0.5) * 10, 0);
@@ -81,10 +78,13 @@ void ofApp::update(){
             float dist = pointForce.length();
             
             pTemp.applyForce(forceApplied / dist);
+            
+            
         }
         
         ofVec2f pointForce = mouseAttractionPoint - pTemp.location;
-        //pTemp.applyForce(pointForce.normalize()*30);
+        
+        pTemp.applyForce(pointForce.normalize() * mouseAttractionForce);
         
         ofVec2f repulsionForce = pTemp.location - repulsionPoint;
         pTemp.applyForce(repulsionForce.normalize() * repulsorPower);
@@ -96,10 +96,10 @@ void ofApp::draw(){
     
     ofBackground(0);
     
-    //    for (int i = 0; i < attractionPoints.size(); i++) {
-    //        ofSetColor(255, 0, 0);
-    //        ofCircle(attractionPoints[i], 10);
-    //    }
+        for (int i = 0; i < attractionPoints.size(); i++) {
+            ofSetColor(255, 0, 0);
+            ofCircle(attractionPoints[i], 5);
+        }
     ofSetColor(0);
     
     for (int i = 0; i < particles.size(); i++) {
@@ -179,17 +179,24 @@ void ofApp::exit(){
 
 //--------------------------------------------------------------
 void ofApp::touchDown(ofTouchEventArgs & touch){
-    
+    mouseAttractionPoint.set( touch.x, touch.y );
+    mouseAttractionForce = 30;
+    cout << " touch down " << endl;
+
 }
 
 //--------------------------------------------------------------
 void ofApp::touchMoved(ofTouchEventArgs & touch){
-    
+    mouseAttractionPoint.set( touch.x, touch.y );
+
 }
 
 //--------------------------------------------------------------
 void ofApp::touchUp(ofTouchEventArgs & touch){
-    
+    mouseAttractionPoint.set( touch.x, touch.y );
+    mouseAttractionForce = 0;
+
+    cout << " touch up " << endl;
 }
 
 //--------------------------------------------------------------

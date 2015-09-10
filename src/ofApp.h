@@ -31,7 +31,8 @@ class ofApp : public ofxiOSApp {
     float noiseCounter = 0;
     
     ofVec2f mouseAttractionPoint;
-    
+    float mouseAttractionForce;
+
     ofVec2f repulsionPoint;
     
     vector<ofVec2f> attractionPoints;
@@ -43,5 +44,6 @@ class ofApp : public ofxiOSApp {
     vector <float> right;
     
     float repulsorPower;
+    
 };
 
