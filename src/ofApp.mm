@@ -6,7 +6,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    int nmbrparticle = 10000;
+    int nmbrparticle = 1000;
     for (int i = 0; i < nmbrparticle; i++) {
         
         Particle p = Particle();
@@ -46,6 +46,7 @@ void ofApp::setup(){
     soundStream.setup(this, 0, 2, 44100, bufferSize, 4);
     
     
+    ofxAccelerometer.setup();
 }
 
 //--------------------------------------------------------------
@@ -54,7 +55,13 @@ void ofApp::update(){
     mouseAttractionPoint.set(0,0);
     //mouseAttractionPoint.set(ofGetMouseX(), ofGetMouseY());
     
-    ofVec2f gravity = ofVec2f (0, 0);
+    //float gravityX = ofxAccelerometer.getForce().x;
+    //float gravityY = ofxAccelerometer.getForce().y;
+    
+    ofVec2f gravity = ofxAccelerometer.getForce() * ofVec2f(1, -1) * 10;  //ofVec2f (0, 9);
+    
+    
+    
     noiseCounter += 0.01;
     ofVec2f wind = ofVec2f ((ofNoise(noiseCounter)-0.5) * 10, 0);
     
@@ -77,7 +84,7 @@ void ofApp::update(){
         }
         
         ofVec2f pointForce = mouseAttractionPoint - pTemp.location;
-        pTemp.applyForce(pointForce.normalize()*30);
+        //pTemp.applyForce(pointForce.normalize()*30);
         
         ofVec2f repulsionForce = pTemp.location - repulsionPoint;
         pTemp.applyForce(repulsionForce.normalize() * repulsorPower);
