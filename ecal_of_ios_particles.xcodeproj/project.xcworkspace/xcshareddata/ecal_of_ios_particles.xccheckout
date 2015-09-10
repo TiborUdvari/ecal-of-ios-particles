@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>286F4646-7ACB-4084-86A2-93ED2E9012C0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ecal_of_ios_particles</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AF6DA9001CE96DF1AC84E4DFB5A433BBDEE71D53</key>
+		<string>https://github.com/TiborUdvari/ecal-of-ios-particles.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ecal_of_ios_particles.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AF6DA9001CE96DF1AC84E4DFB5A433BBDEE71D53</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TiborUdvari/ecal-of-ios-particles.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AF6DA9001CE96DF1AC84E4DFB5A433BBDEE71D53</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AF6DA9001CE96DF1AC84E4DFB5A433BBDEE71D53</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ecal_of_ios_particles</string>
+		</dict>
+	</array>
+</dict>
+</plist>

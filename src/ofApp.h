@@ -4,6 +4,8 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
+#include "Particle.h"
+
 class ofApp : public ofxiOSApp {
 	
     public:
@@ -22,7 +24,24 @@ class ofApp : public ofxiOSApp {
         void gotFocus();
         void gotMemoryWarning();
         void deviceOrientationChanged(int newOrientation);
-
+    
+    void checkEdges(Particle &p);
+    vector<Particle> particles;
+    
+    float noiseCounter = 0;
+    
+    ofVec2f mouseAttractionPoint;
+    
+    ofVec2f repulsionPoint;
+    
+    vector<ofVec2f> attractionPoints;
+    
+    void audioIn(float * input, int bufferSize, int nChannels);
+    ofSoundStream soundStream;
+    
+    vector <float> left;
+    vector <float> right;
+    
+    float repulsorPower;
 };
-
 
